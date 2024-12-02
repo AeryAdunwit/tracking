@@ -159,7 +159,7 @@
         'dhl': `https://www.dhl.com/th-en/home/tracking.html?tracking-id=${trackingNumber}`,
         'scg': `https://www.scgjwd.com/tracking?tracking_number=${trackingNumber}`,
         'porlor': `https://rfe.co.th/tracking?number=${trackingNumber}`,
-        'skyfrog': `https://track.skyfrog.net/h1IZM${trackingNumber}`
+        'skyfrog': `https://track.skyfrog.net/h1IZM?TrackNo=${trackingNumber}`
       };
       window.open(trackingLinks[carrier], '_blank');
     }
