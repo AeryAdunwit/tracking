@@ -1,42 +1,202 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <base target="_top">
   <title>Tracking Forwarding Agent</title>
   <style>
-    /* CSS เดิม */
+    /* Add your CSS styles here */
+    .tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+
+    .tab button {
+      background-color: #f1f1f1;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+    }
+
+    .tab button:hover {
+      background-color: #ddd;
+    }
+
+    .tab button.active {
+      background-color: #ccc;
+    }
+
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+      background-color: #f9f9f9;
+    }
+
+    /* Add styles for iframe container */
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Splash screen styles */
+    .splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      /* เพิ่มคำสั่งให้เรียงแนวตั้ง */
+      z-index: 9999;
+    }
+
+    .splash-screen p {
+      font-size: 40px;
+      /* ปรับขนาดข้อความใหญ่ขึ้น */
+      color: #333;
+      text-align: center;
+      /* จัดการการจัดวางข้อความให้อยู่ตรงกลาง */
+      padding: 30px;
+      /* เพิ่มการเว้นระหว่างข้อความ */
+    }
+
+    .splash-screen img {
+      width: 200px;
+      /* ขนาดของรูปภาพ */
+      margin-top: 20px;
+      /* เว้นระยะห่างระหว่างข้อความและรูปภาพ */
+    }
+
+    /* Media query for smaller screens */
+    @media only screen and (max-width: 600px) {
+      .splash-screen p {
+        font-size: 24px;
+        /* ปรับขนาดข้อความใหญ่ขึ้น */
+        padding: 10px;
+        /* เพิ่มการเว้นระหว่างข้อความ */
+      }
+
+      .splash-screen img {
+        width: 150px;
+        /* ขนาดของรูปภาพ */
+        margin-top: 10px;
+        /* เว้นระยะห่างระหว่างข้อความและรูปภาพ */
+      }
+    }
   </style>
 </head>
+
 <body>
+
+  <!-- Splash screen -->
   <div class="splash-screen">
-    <p>Check Freight For Your Order</p>
-    <img src="https://img2.pic.in.th/pic/sisfae452b686346315.png" alt="Splash Image">
+    <b>
+      <p>Check Frieght For your Order
+    </b><br></p>
+    <img src="https://img2.pic.in.th/pic/sisfae452b686346315.png"  alt="Splash Image">
+    <!-- เพิ่มรูปภาพ -->
     <p>Mainwarehouse-Delivery</p>
   </div>
 
   <div class="tab" style="display: none;">
-    <button class="tablinks" onclick="openTrackingLink('DHL')">Track By DHL</button>
-    <button class="tablinks" onclick="openTrackingLink('SCG')">Track By SCG</button>
-    <button class="tablinks" onclick="openTrackingLink('Porlor')">Track By Porlor</button>
-    <button class="tablinks" onclick="openTrackingLink('Skyfrog')">Track By Skyfrog(BKK)</button>
+    <button class="tablinks" onclick="openTab(event, 'Tab1')">Track By DHL</button>
+    <button class="tablinks" onclick="openTab(event, 'Tab2')">Track By SCG</button>
+    <button class="tablinks" onclick="openTab(event, 'Tab3')">Track By Porlor</button>
+    <button class="tablinks" onclick="openTab(event, 'Tab4')">Track By Skyfrog(BKK)</button>
   </div>
 
-  <script>
-    function openTrackingLink(carrier) {
-      const trackingLinks = {
-        'DHL': 'https://www.dhl.com/global-en/home/tracking.html',
-        'SCG': 'https://www.scgjwd.com/tracking',
-        'Porlor': 'https://rfe.co.th/tracking',
-        'Skyfrog': 'https://track.skyfrog.net'
-      };
-      
-      window.open(trackingLinks[carrier], '_blank');
-    }
+<div id="Tab1" class="tabcontent">
+  <h3>Track By DHL</h3>
+  <div class="iframe-container">
+    <iframe 
+      src="https://ecommerceportal.dhl.com/track" 
+      frameborder="0" 
+      allowfullscreen 
+      allow="fullscreen">
+    </iframe>
+  </div>
+</div>
 
-    // Loading delay script
+<div id="Tab2" class="tabcontent">
+  <h3>Track By SCG</h3>
+  <div class="iframe-container">
+    <iframe 
+      src="https://www.scgjwd.com/tracking" 
+      frameborder="0" 
+      allowfullscreen 
+      allow="fullscreen">
+    </iframe>
+  </div>
+</div>
+
+<div id="Tab3" class="tabcontent">
+  <h3>Track By Porlor</h3>
+  <div class="iframe-container">
+    <iframe 
+      src="https://rfe.co.th/hc_rfeweb/trackingweb" 
+      frameborder="0" 
+      allowfullscreen 
+      allow="fullscreen">
+    </iframe>
+  </div>
+</div>
+
+<div id="Tab4" class="tabcontent">
+  <h3>Track By Skyfrog(BKK)</h3>
+  <div class="iframe-container">
+    <iframe 
+      src="https://track.skyfrog.net/h1IZM" 
+      frameborder="0" 
+      allowfullscreen 
+      allow="fullscreen">
+    </iframe>
+  </div>
+</div>
+
+  <script>
+    // Simulate loading delay (for demonstration)
     setTimeout(function () {
       document.querySelector('.splash-screen').style.display = 'none';
       document.querySelector('.tab').style.display = 'block';
-    }, 3000);
+    }, 3000); // Adjust loading time as needed
   </script>
+
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
+
 </body>
+
 </html>
