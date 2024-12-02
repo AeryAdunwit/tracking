@@ -125,45 +125,53 @@
     <button class="tablinks" onclick="openTab(event, 'Tab4')">Track By Skyfrog(BKK)</button>
   </div>
 
-  <div id="Tab1" class="tabcontent">
-    <font color="red">
-      <h3>Track By DHL</h3>
-    </font>
-    <!-- Add your content for Tab 1 here -->
-    <div class="iframe-container">
-      <iframe src="https://ecommerceportal.dhl.com/track/pages/customer/trackItNowPublic.xhtml" frameborder="0" allowfullscreen></iframe>
-    </div>
+<div id="Tab1" class="tabcontent">
+  <h3>Track By DHL</h3>
+  <div class="iframe-container">
+    <iframe 
+      src="https://ecommerceportal.dhl.com/track" 
+      frameborder="0" 
+      allowfullscreen 
+      allow="fullscreen">
+    </iframe>
   </div>
+</div>
 
-  <div id="Tab2" class="tabcontent">
-    <font color="blue">
-      <h3>Track By SCG</h3>
-    </font>
-    <!-- Add your content for Tab 2 here -->
-    <div class="iframe-container">
-      <iframe src="https://www.scgjwd.com/tracking?tracking_number=" frameborder="0" allowfullscreen></iframe>
-    </div>
+<div id="Tab2" class="tabcontent">
+  <h3>Track By SCG</h3>
+  <div class="iframe-container">
+    <iframe 
+      src="https://www.scgjwd.com/tracking" 
+      frameborder="0" 
+      allowfullscreen 
+      allow="fullscreen">
+    </iframe>
   </div>
+</div>
 
-  <div id="Tab3" class="tabcontent">
-    <font color="green">
-      <h3>Track By Porlor</h3>
-    </font>
-    <!-- Add your content for Tab 3 here -->
-    <div class="iframe-container">
-      <iframe src="fe.co.th/hc_rfeweb/trackingweb" frameborder="0" allowfullscreen></iframe>
-    </div>
+<div id="Tab3" class="tabcontent">
+  <h3>Track By Porlor</h3>
+  <div class="iframe-container">
+    <iframe 
+      src="https://rfe.co.th/hc_rfeweb/trackingweb" 
+      frameborder="0" 
+      allowfullscreen 
+      allow="fullscreen">
+    </iframe>
   </div>
-  
-  <div id="Tab4" class="tabcontent">
-    <font color="yellow">
-      <h3>Track By Skyfrog(BKK)</h3>
-    </font>
-    <!-- Add your content for Tab 4 here -->
-    <div class="iframe-container">
-      <iframe src="https://track.skyfrog.net/h1IZM" frameborder="0" allowfullscreen allow="fullscreen"></iframe>
-    </div>
+</div>
+
+<div id="Tab4" class="tabcontent">
+  <h3>Track By Skyfrog(BKK)</h3>
+  <div class="iframe-container">
+    <iframe 
+      src="https://track.skyfrog.net/h1IZM" 
+      frameborder="0" 
+      allowfullscreen 
+      allow="fullscreen">
+    </iframe>
   </div>
+</div>
 
   <script>
     // Simulate loading delay (for demonstration)
