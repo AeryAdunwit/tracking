@@ -200,7 +200,7 @@ function trackPackage() {
     // Existing tracking links for other carriers
     const trackingLinks = {
       'scg': `https://www.scgjwd.com/tracking?tracking_number=${trackingNumber}`,
-      'porlor': `https://rfe.co.th/tracking?number=${trackingNumber}`,
+      'porlor': `https://rfe.co.th/hc_rfeweb/trackingweb?number=${trackingNumber}`,
       'skyfrog': `https://track.skyfrog.net/h1IZM?TrackNo=${trackingNumber}`
     };
     window.open(trackingLinks[carrier], '_blank');
