@@ -171,18 +171,40 @@
 function trackPackage() {
   const carrier = document.getElementById('carrier').value;
   const trackingNumber = document.getElementById('tracking-number').value;
+  
   if (!carrier || !trackingNumber) {
     alert('กรุณาเลือกบริษัทขนส่งและกรอกหมายเลข DO');
     return;
   }
-  const trackingLinks = {
-    'dhl': `https://ecommerceportal.dhl.com/track/pages/customer/trackItNowPublic.xhtml` +
-           `?trackItNowForm:trackItNowSearchBox=${encodeURIComponent(trackingNumber)}`,
-    'scg': `https://www.scgjwd.com/tracking?tracking_number=${trackingNumber}`,
-    'porlor': `https://rfe.co.th/tracking?number=${trackingNumber}`,
-    'skyfrog': `https://track.skyfrog.net/h1IZM?TrackNo=${trackingNumber}`
-  };
-  window.open(trackingLinks[carrier], '_blank');
+  
+  if (carrier === 'dhl') {
+    // Open DHL tracking page
+    const dhlTrackingWindow = window.open('https://ecommerceportal.dhl.com/track/pages/customer/trackItNowPublic.xhtml', '_blank');
+    
+    // Wait for the window to load
+    dhlTrackingWindow.onload = function() {
+      // Try to find the textarea and set its value
+      const textarea = dhlTrackingWindow.document.getElementById('trackItNowForm:trackItNowSearchBox');
+      
+      if (textarea) {
+        textarea.value = trackingNumber;
+        
+        // Trigger input event to ensure the page recognizes the change
+        const event = new dhlTrackingWindow.Event('input', { bubbles: true });
+        textarea.dispatchEvent(event);
+      } else {
+        console.error('Textarea not found');
+      }
+    };
+  } else {
+    // Existing tracking links for other carriers
+    const trackingLinks = {
+      'scg': `https://www.scgjwd.com/tracking?tracking_number=${trackingNumber}`,
+      'porlor': `https://rfe.co.th/tracking?number=${trackingNumber}`,
+      'skyfrog': `https://track.skyfrog.net/h1IZM?TrackNo=${trackingNumber}`
+    };
+    window.open(trackingLinks[carrier], '_blank');
+  }
 }
   </script>
 </body>
